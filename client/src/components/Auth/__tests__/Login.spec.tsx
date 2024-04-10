@@ -42,6 +42,7 @@ const setup = ({
       registrationEnabled: true,
       emailLoginEnabled: true,
       socialLoginEnabled: true,
+      passwordResetEnabled: true,
       serverDomain: 'mock-server',
     },
   },
