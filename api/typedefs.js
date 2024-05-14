@@ -7,6 +7,13 @@
  * @typedef {import('openai').OpenAI} OpenAI
  * @memberof typedefs
  */
+
+/**
+ * @exports Ollama
+ * @typedef {import('ollama').Ollama} Ollama
+ * @memberof typedefs
+ */
+
 /**
  * @exports AxiosResponse
  * @typedef {import('axios').AxiosResponse} AxiosResponse
@@ -62,8 +69,14 @@
  */
 
 /**
- * @exports ChatCompletionMessages
- * @typedef {import('openai').OpenAI.ChatCompletionMessageParam} ChatCompletionMessages
+ * @exports OllamaMessage
+ * @typedef {import('ollama').Message} OllamaMessage
+ * @memberof typedefs
+ */
+
+/**
+ * @exports ChatCompletionMessage
+ * @typedef {import('openai').OpenAI.ChatCompletionMessageParam} ChatCompletionMessage
  * @memberof typedefs
  */
 
@@ -645,6 +658,12 @@
  */
 
 /**
+ * @exports ImportBatchBuilder
+ * @typedef {import('./server/utils/import/importBatchBuilder.js').ImportBatchBuilder} ImportBatchBuilder
+ * @memberof typedefs
+ */
+
+/**
  * @exports Thread
  * @typedef {Object} Thread
  * @property {string} id - The identifier of the thread.
@@ -1147,7 +1166,7 @@
 /**
  * Main entrypoint for API completion calls
  * @callback sendCompletion
- * @param {Array<ChatCompletionMessages> | string} payload - The messages or prompt to send to the model
+ * @param {Array<ChatCompletionMessage> | string} payload - The messages or prompt to send to the model
  * @param {object} opts - Options for the completion
  * @param {onTokenProgress} opts.onProgress - Callback function to handle token progress
  * @param {AbortController} opts.abortController - AbortController instance
@@ -1158,7 +1177,7 @@
 /**
  * Legacy completion handler for OpenAI API.
  * @callback getCompletion
- * @param {Array<ChatCompletionMessages> | string} input - Array of messages or a single prompt string
+ * @param {Array<ChatCompletionMessage> | string} input - Array of messages or a single prompt string
  * @param {(event: object | string) => Promise<void>} onProgress - SSE progress handler
  * @param {onTokenProgress} onTokenProgress - Token progress handler
  * @param {AbortController} [abortController] - AbortController instance
@@ -1255,5 +1274,19 @@
  * @property {number} create_time - Creation time of the conversation as a Unix timestamp.
  * @property {number} update_time - Last update time of the conversation as a Unix timestamp.
  * @property {Object.<string, ChatGPTMapping>} mapping - Mapping of message nodes within the conversation.
+ * @memberof typedefs
+ */
+
+/** Mutations */
+
+/**
+ * @exports TForkConvoResponse
+ * @typedef {import('librechat-data-provider').TForkConvoResponse} TForkConvoResponse
+ * @memberof typedefs
+ */
+
+/**
+ * @exports TForkConvoRequest
+ * @typedef {import('librechat-data-provider').TForkConvoRequest} TForkConvoRequest
  * @memberof typedefs
  */
